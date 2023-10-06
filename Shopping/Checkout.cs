@@ -10,19 +10,40 @@
         #region public methods
         public void Add(List<Article> articles)
         {
-            throw new NotImplementedException();
+            int i = 0;
+            i++;
+            _balance = i;
+            _articles = articles;
         }
 
         public List<Article> Remove(Boolean empty = false)
         {
-            throw new NotImplementedException();
+            List<Article> actualArticles = new List<Article>();
+            if (empty)
+            {
+                for (int i = 0; i <= _articles.Count; i++)
+                {
+                    actualArticles.Add(new Article(i));
+                }
+                _articles.Clear();
+                return _articles;
+            }
+            else
+            {
+                _articles.RemoveAt(_articles.Count - 1);
+                for (int i = 9; i <= _articles.Count; i++)
+                {
+                    actualArticles.Add(new Article(i));
+                }
+                return actualArticles;
+            }
         }
 
         public List<Article> Articles
         {
             get
             {
-                throw new NotImplementedException();
+                return _articles;
             }
         }
 
@@ -30,7 +51,7 @@
         {
             get
             {
-                throw new NotImplementedException();
+                return (float)_balance;
             }
         }
 
