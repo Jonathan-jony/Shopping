@@ -5,36 +5,24 @@ namespace Shopping
     public class Cart : ICollectionOfArticles
     {
         #region private attributes
-        private List<Article> _articles = new List<Article>();
+        private List<CartItem> _cartItems = new List<CartItem>();
         #endregion private attributes
 
         #region public methods
-        public void Add(List<Article> articles)
+        public void Add(List<CartItem> cartItems)
         {
-            _articles = articles;
+            _cartItems = cartItems;
         }
 
-        public List<Article> Remove(Boolean clearCart = false)
+        public List<CartItem> Remove(Boolean clearCart = false)
         {
-            List<Article> articlesReadyToCheckout = new List<Article>();
-            if (clearCart) 
-            {
-                for (int i = 0; i <= _articles.Count; i++)
-                {
-                    articlesReadyToCheckout.Add(new Article(i));
-                }
-                _articles.Clear();
-                return _articles;
-            }
-            else
-            {
-                _articles.RemoveAt(_articles.Count - 1);
-                for (int i = 9; i <= _articles.Count; i++)
-                {
-                    articlesReadyToCheckout.Add(new Article(i));
-                }
-                return articlesReadyToCheckout;               
-            }
+
+            throw new NotImplementedException();
+        }
+
+        public List<CartItem> Remove(CartItem cartItemToRemove)
+        {
+            throw new NotImplementedException();
         }
 
         public void Release()
@@ -42,11 +30,19 @@ namespace Shopping
             throw new NotImplementedException();
         }
 
-        public List<Article> Articles
+        public List<CartItem> CartItems
         {
             get
             {
-                return _articles;
+                return _cartItems;
+            }
+        }
+
+        public float Price
+        {
+            get
+            {
+                throw new NotImplementedException();
             }
         }
 
