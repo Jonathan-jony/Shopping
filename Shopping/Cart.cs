@@ -6,6 +6,7 @@ namespace Shopping
     {
         #region private attributes
         private List<CartItem> _cartItems = new List<CartItem>();
+        private float _price = 0f;
         #endregion private attributes
 
         #region public methods
@@ -42,7 +43,7 @@ namespace Shopping
         {
             get
             {
-                throw new NotImplementedException();
+                return (float)_price;
             }
         }
 
