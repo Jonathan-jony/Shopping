@@ -16,7 +16,7 @@ namespace Shopping
             for (int i = 0; i < _quantity; i++)
             {
                 _article = article;
-            }  
+        }
         }
 
         public Article Article

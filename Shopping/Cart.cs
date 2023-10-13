@@ -1,12 +1,12 @@
-﻿using System.Net.Http.Headers;
+﻿using System;
+using System.Net.Http.Headers;
 
 namespace Shopping
 {
-    public class Cart : ICollectionOfArticles
+    public class Cart
     {
         #region private attributes
         private List<CartItem> _cartItems = new List<CartItem>();
-        private float _price = 0f;
         #endregion private attributes
 
         #region public methods
@@ -15,20 +15,17 @@ namespace Shopping
             _cartItems = cartItems;
         }
 
-        public List<CartItem> Remove(Boolean clearCart = false)
-        {
-
-            throw new NotImplementedException();
-        }
-
-        public List<CartItem> Remove(CartItem cartItemToRemove)
+        public void Remove(List<CartItem> cartItemsToRemove)
         {
             throw new NotImplementedException();
         }
 
-        public void Release()
+        public List<CartItem> CartItems
         {
-            throw new NotImplementedException();
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public List<CartItem> CartItems
@@ -46,8 +43,6 @@ namespace Shopping
                 return (float)_price;
             }
         }
-
-        public bool? IsReleased { get; set; }
         #endregion public methods
     }
 }

@@ -15,10 +15,9 @@ namespace TestShopping
         [SetUp]
         public void Setup()
         {
-            _price = 20.45f;
-            _article = new Article(_price);
+            List<Article> articles = ArticleGenerator.Generate(1);
             _quantity = 1;
-            _cartItem = new CartItem(_article, _quantity);
+            _cartItem = new CartItem(articles[0], _quantity);
         }
 
         [Test]
@@ -26,13 +25,14 @@ namespace TestShopping
         {
             //given
             //refer to Setup
+            _price = 2.0f;
 
             //when
             //Event will be triggered by constructor
 
             //then
-            Assert.AreEqual(_cartItem.Article.Price, _price);
-            Assert.AreEqual(_cartItem.Quantity, _quantity);
+            Assert.AreEqual(_price, _cartItem.Article.Price);
+            Assert.AreEqual(_quantity, _cartItem.Quantity);
         }
 
         [Test]
