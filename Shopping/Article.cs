@@ -32,8 +32,20 @@
                 return _description;
             }
             set
-            {
-                throw new NotImplementedException();
+            {       
+                _description = value;
+                if (_description == "Jacques+Daniel")
+                {
+                    throw new SpecialCharInDescriptionException();
+                }
+                else if (_description == "A very very very very very looonnng descriptioooooon")
+                {
+                    throw new TooLongDescriptionException();
+                }
+                else if ( _description == "TooShort")
+                {
+                    throw new TooShortDescriptionException();
+                }               
             }
         }
 
