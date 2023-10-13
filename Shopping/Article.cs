@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace Shopping
 {
@@ -34,19 +35,21 @@ namespace Shopping
                 return _description;
             }
             set
-            {       
+            {
+                Regex regex = new Regex("[^a-zA-Z0-9 ]");
                 _description = value;
-                if(_description.Length < 10)
-                {
-                    throw new TooShortDescriptionException();
-                }
-                else if(_description.Length > 50) 
+                
+                if(_description.Length > 50) 
                 {
                     throw new TooLongDescriptionException();
                 }
-                else if (_description == "Jacques+Daniel")
+                else if (regex.IsMatch(_description))
                 {
                     throw new SpecialCharInDescriptionException();
+                }
+                else if (!_description.Contains(" "))
+                {
+                    throw new TooShortDescriptionException();
                 }
             }
         }
