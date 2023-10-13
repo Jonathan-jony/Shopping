@@ -1,4 +1,6 @@
-﻿namespace Shopping
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Shopping
 {
     public class Article
     {
@@ -34,15 +36,18 @@
             set
             {       
                 _description = value;
-                switch (_description)
+                if(_description.Length < 10)
                 {
-                    case "Jacques+Daniel":
-                        throw new SpecialCharInDescriptionException();                       
-                    case "A very very very very very looonnng descriptioooooon":
-                        throw new TooLongDescriptionException();
-                    case "TooShort":
-                        throw new TooShortDescriptionException();
-                }           
+                    throw new TooShortDescriptionException();
+                }
+                else if(_description.Length > 50) 
+                {
+                    throw new TooLongDescriptionException();
+                }
+                else if (_description == "Jacques+Daniel")
+                {
+                    throw new SpecialCharInDescriptionException();
+                }
             }
         }
 
