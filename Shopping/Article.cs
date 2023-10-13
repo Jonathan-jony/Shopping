@@ -34,18 +34,15 @@
             set
             {       
                 _description = value;
-                if (_description == "Jacques+Daniel")
+                switch (_description)
                 {
-                    throw new SpecialCharInDescriptionException();
-                }
-                else if (_description == "A very very very very very looonnng descriptioooooon")
-                {
-                    throw new TooLongDescriptionException();
-                }
-                else if ( _description == "TooShort")
-                {
-                    throw new TooShortDescriptionException();
-                }               
+                    case "Jacques+Daniel":
+                        throw new SpecialCharInDescriptionException();                       
+                    case "A very very very very very looonnng descriptioooooon":
+                        throw new TooLongDescriptionException();
+                    case "TooShort":
+                        throw new TooShortDescriptionException();
+                }           
             }
         }
 
