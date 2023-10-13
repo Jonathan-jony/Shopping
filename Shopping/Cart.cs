@@ -32,7 +32,12 @@ namespace Shopping
         {
             get
             {
-                throw new NotImplementedException();
+                float currentCartPrice = 0f;
+                foreach (var item in _cartItems)
+                {
+                    currentCartPrice += item.Article.Price * item.Quantity;
+                }
+                return currentCartPrice;
             }
         }
         #endregion public methods
