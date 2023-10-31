@@ -42,7 +42,11 @@ namespace TestShopping
             //refer to Setup
             int expectedArticlesQuantity = 2;
             List<Article> expectedArticles = ArticleGenerator.Generate(expectedArticlesQuantity);
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
             int expectedQuantity1 = 1;
             CartItem expectedCartItem1 = new CartItem(expectedArticles[0], expectedQuantity1);
 
@@ -81,6 +85,11 @@ namespace TestShopping
             Assert.That(_cart.CartItems, Is.EqualTo(expectedCartItems));
         }
 
+<<<<<<< HEAD
+=======
+        //TODO add remove test cases
+
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         [Test]
         public void Price_EmptyCart_GetPrice()
         {
@@ -90,7 +99,11 @@ namespace TestShopping
             //when
 
             //then
+<<<<<<< HEAD
             Assert.That(_cart.Price, Is.EqualTo(expectedPrice));
+=======
+            Assert.That(_cart.Price(), Is.EqualTo(expectedPrice));
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         }
 
         [Test]
@@ -99,7 +112,11 @@ namespace TestShopping
             //given
             List<Article> articles = ArticleGenerator.Generate(5);
             List<CartItem> cartItems = new List<CartItem>();
+<<<<<<< HEAD
             foreach(Article article in articles)
+=======
+            foreach (Article article in articles)
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
             {
                 cartItems.Add(new CartItem(article, 1));
             }
@@ -109,10 +126,37 @@ namespace TestShopping
             //when
 
             //then
+<<<<<<< HEAD
             Assert.That(_cart.Price, Is.EqualTo(expectedPrice));
         }
 
         [Test]
+=======
+            Assert.That(_cart.Price(), Is.EqualTo(expectedPrice));
+        }
+
+        [Test]
+        public void PriceAverage_UniqueValue_GetAverage()
+        {
+            //given
+            List<Article> articles = ArticleGenerator.Generate(5);
+            List<CartItem> cartItems = new List<CartItem>();
+            foreach (Article article in articles)
+            {
+                cartItems.Add(new CartItem(article, 1));
+            }
+            _cart.Add(cartItems);
+
+            //when
+
+            //then
+            Assert.That(_cart.Price(true), Is.EqualTo(6));
+        }
+
+        // TODO Add price test case for multiple article (quantity > 1)
+
+        [Test]
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         public void DoesExist_ById_True()
         {
             //given
@@ -124,8 +168,12 @@ namespace TestShopping
             }
             _cart.Add(cartItems);
 
+<<<<<<< HEAD
             //when
             
+=======
+            //when            
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
 
             //then
             Assert.IsTrue(_cart.DoesExist(10));
@@ -145,11 +193,19 @@ namespace TestShopping
 
             //when
 
+<<<<<<< HEAD
 
             //then
             Assert.IsTrue(_cart.DoesExist(999));
         }
 
+=======
+            //then
+            Assert.IsFalse(_cart.DoesExist(999));
+        }
+
+        [Test]
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         public void Cheapest_UniqueValue_GetArticleId()
         {
             //given
@@ -163,11 +219,19 @@ namespace TestShopping
 
             //when
 
+<<<<<<< HEAD
 
             //then
             Assert.AreEqual(1, _cart.Cheapest());
         }
 
+=======
+            //then
+            Assert.That(_cart.Cheapest(), Is.EqualTo(1));
+        }
+
+        [Test]
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         public void MostExpensive_UniqueValue_GetArticleId()
         {
             //given
@@ -181,9 +245,14 @@ namespace TestShopping
 
             //when
 
+<<<<<<< HEAD
 
             //then
             Assert.AreEqual(10, _cart.Cheapest());
+=======
+            //then
+            Assert.That(_cart.MostExpensive(), Is.EqualTo(10));
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         }
     }
 }

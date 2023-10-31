@@ -32,9 +32,15 @@ namespace TestShopping
             //Event will be triggered by constructor
 
             //then
+<<<<<<< HEAD
             Assert.AreEqual(_id, _article.Id);
             Assert.AreEqual(_description, _article.Description);
             Assert.AreEqual(_price, _article.Price);
+=======
+            Assert.That(_article.Id, Is.EqualTo(_id));
+            Assert.That(_article.Description, Is.EqualTo(_description));
+            Assert.That(_article.Price, Is.EqualTo(_price));
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         }
 
         #region Description
@@ -46,7 +52,11 @@ namespace TestShopping
          */
 
         [Test]
+<<<<<<< HEAD
         public void Description_CorrectDescription_ReturnNewValue()
+=======
+        public void Description_ShortDescription_ReturnNewValue()
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         {
             //given
             string expectedDescription = "After Shave";
@@ -55,7 +65,24 @@ namespace TestShopping
             _article.Description = expectedDescription;
 
             //then
+<<<<<<< HEAD
             Assert.AreEqual(expectedDescription, _article.Description);
+=======
+            Assert.That(_article.Description, Is.EqualTo(expectedDescription));
+        }
+
+        [Test]
+        public void Description_LongDescription_ReturnNewValue()
+        {
+            //given
+            string expectedDescription = "A very long long long long long long descriptionn";
+
+            //when
+            _article.Description = expectedDescription;
+
+            //then
+            Assert.That(_article.Description, Is.EqualTo(expectedDescription));
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         }
 
         [Test]

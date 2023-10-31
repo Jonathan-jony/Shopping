@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace Shopping
+=======
+﻿namespace Shopping
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
 {
     public class Article
     {
@@ -14,17 +18,27 @@ namespace Shopping
         #region public methods
         public Article(int id, string description, float price)
         {
+<<<<<<< HEAD
             _id = id;
             _description = description;
             _price = price;
         }
 
 
+=======
+            throw new NotImplementedException();
+        }
+
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
         public int Id
         {
             get
             {
+<<<<<<< HEAD
                 return _id;
+=======
+                throw new NotImplementedException();
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
             }
         }
 
@@ -32,6 +46,7 @@ namespace Shopping
         {
             get
             {
+<<<<<<< HEAD
                 return _description;
             }
             set
@@ -51,6 +66,13 @@ namespace Shopping
                 {
                     throw new TooShortDescriptionException();
                 }
+=======
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
             }
         }
 
@@ -58,7 +80,11 @@ namespace Shopping
         {
             get
             {
+<<<<<<< HEAD
                 return _price;
+=======
+                throw new NotImplementedException();
+>>>>>>> 1ed100d099a987c382ca66ddd3d9e836ae89a7c1
             }
         }
         #endregion public methods
